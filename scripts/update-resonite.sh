@@ -140,10 +140,7 @@ if [ "${ENABLE_GIT_MODS}" = "true" ] && [ "${ENABLE_MODS}" = "true" ]; then
   echo "Mod files copied from git staging folder"
 fi
 
-if [ -d /configs ]; then
-    rm -rf /home/container/.config
-    mv /configs /home/container/.config
-    chown -r container:container /home/container/.config
-fi
+rm -rf /home/container/.config
+cp -r /configs /home/container/.config
 
 exec $*
