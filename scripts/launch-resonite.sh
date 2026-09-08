@@ -17,6 +17,8 @@ if [ "${SERVER_IP}" != "" ]; then
 	fi
 fi
 
+/tools/rusty-reso-ws-tty/target/release/rusty-websocket-tty btop > /Logs/rusty-ws-tty.log 2>&1 &
+
 if [ "${ENABLE_MODS}" = "true" ]; then
 	exec dotnet Resonite.dll -HeadlessConfig /Config/${CONFIG_FILE} -Logs /Logs/ -LoadAssembly Libraries/ResoniteModLoader.dll ${ADDITIONAL_ARGUMENTS}
 else
